@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -15,6 +16,7 @@ module.exports = {
         splitChunks: {
             chunks: 'all',
         },
+        minimizer: [new CssMinimizerPlugin()],
     },
     devServer: {
         static: './dist',
